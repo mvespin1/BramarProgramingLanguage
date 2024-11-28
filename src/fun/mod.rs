@@ -633,7 +633,7 @@ impl Term {
       | Term::App { fun: fst, arg: snd, .. }
       | Term::Oper { fst, snd, .. } => ChildrenIter::Two([fst.as_mut(), snd.as_mut()]),
       Term::Lam { pat, bod, .. } => ChildrenIter::One([bod.as_mut()]),
-      Term::With { bod, .. } => ChildrenIter::One([bod.as_mut()]),
+      Term::With { bod, .. } | Term::Open { bod, .. } => ChildrenIter::One([bod.as_mut()]),
       Term::Var { .. }
       | Term::Link { .. }
       | Term::Num { .. }
@@ -765,7 +765,7 @@ impl Term {
         ChildrenIter::Two([(fst.as_mut(), BindsIter::Zero([])), (snd.as_mut(), BindsIter::Zero([]))])
       }
       Term::Lam { pat, bod, .. } => ChildrenIter::One([bod.as_mut()]),
-      Term::With { bod, .. } => ChildrenIter::One([bod.as_mut()]),
+      Term::With { bod, .. } | Term::Open { bod, .. } => ChildrenIter::One([bod.as_mut()]),
       Term::Var { .. }
       | Term::Link { .. }
       | Term::Num { .. }
