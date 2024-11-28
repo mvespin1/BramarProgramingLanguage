@@ -514,7 +514,7 @@ impl Term {
           write!(f, "\n{:tab$}}}", "")
         }
         Term::Bend { bnd: bind, arg: init, cond, step, base } => {
-          write!(f, "bend ")?;
+          write!(f, "bramar ")?;
           for (bind, init) in bind.iter().zip(init) {
             if let Some(bind) = bind {
               write!(f, "{} = ", bind)?;
