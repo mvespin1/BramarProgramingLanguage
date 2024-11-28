@@ -1,5 +1,3 @@
-// Pass to give all variables in a definition unique names.
-
 use crate::{
   fun::{Book, Name, Term},
   maybe_grow,
